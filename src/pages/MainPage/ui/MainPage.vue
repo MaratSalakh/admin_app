@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { cities, brigades, shifts } from "../models/data";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const currentCity = ref("");
 const currentWorkshop = ref("");
@@ -61,7 +64,7 @@ const availableEmployees = computed(() => {
             </select>
         </form>
 
-        <button>save</button>
+        <button @click="router.push('/info')">save</button>
     </div>
 </template>
 
