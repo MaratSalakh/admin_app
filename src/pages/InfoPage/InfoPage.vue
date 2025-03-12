@@ -5,11 +5,38 @@ const store = useWorksStore();
 </script>
 
 <template>
-    <div>{{ store.data?.currentCity }}</div>
-    <div>{{ store.data?.currentWorkshop }}</div>
-    <div>{{ store.data?.currentEmployee }}</div>
-    <div>{{ store.data?.currentBrigade }}</div>
-    <div>{{ store.data?.currentShift }}</div>
+    <div>
+        Город:
+        {{ store.data?.currentCity ? store.data?.currentCity : "Не выбрано" }}
+    </div>
+    <div>
+        Цех:
+        {{
+            store.data?.currentWorkshop
+                ? store.data?.currentWorkshop
+                : "Не выбрано"
+        }}
+    </div>
+    <div>
+        Работник:
+        {{
+            store.data?.currentEmployee
+                ? store.data?.currentEmployee
+                : "Не выбрано"
+        }}
+    </div>
+    <div>
+        Бригада:
+        {{
+            store.data?.currentBrigade
+                ? store.data?.currentBrigade
+                : "Не выбрано"
+        }}
+    </div>
+    <div>
+        Смена:
+        {{ store.data?.currentShift ? store.data?.currentShift : "Не выбрано" }}
+    </div>
 </template>
 
 <style scoped></style>
