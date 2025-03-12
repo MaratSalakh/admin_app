@@ -40,15 +40,21 @@ const saveAndPush = () => {
 </script>
 
 <template>
-    <div>
-        <form>
-            <select v-model="currentCity" name="city">
+    <div class="container">
+        <form class="form">
+            <select class="form__select" v-model="currentCity" name="city">
+                <option value="">-- Выберите город --</option>
                 <option v-for="city in cities" :value="city.name">
                     {{ city.name }}
                 </option>
             </select>
 
-            <select v-model="currentWorkshop" name="workshop">
+            <select
+                class="form__select"
+                v-model="currentWorkshop"
+                name="workshop"
+            >
+                <option value="">-- Выберите цех --</option>
                 <option
                     v-for="workshop in availableWorkshops"
                     :value="workshop.name"
@@ -57,7 +63,12 @@ const saveAndPush = () => {
                 </option>
             </select>
 
-            <select v-model="currentEmployee" name="employee">
+            <select
+                class="form__select"
+                v-model="currentEmployee"
+                name="employee"
+            >
+                <option value="">-- Выберите работника --</option>
                 <option
                     v-for="employee in availableEmployees"
                     :value="employee.name"
@@ -66,21 +77,54 @@ const saveAndPush = () => {
                 </option>
             </select>
 
-            <select v-model="currentBrigade" name="brigade">
+            <select
+                class="form__select"
+                v-model="currentBrigade"
+                name="brigade"
+            >
+                <option value="">-- Выберите бригаду --</option>
                 <option v-for="brigade in brigades" :value="brigade.name">
                     {{ brigade.name }}
                 </option>
             </select>
 
-            <select v-model="currentShift" name="shift">
+            <select class="form__select" v-model="currentShift" name="shift">
+                <option value="">-- Выберите смену --</option>
                 <option v-for="shift in shifts" :value="shift.name">
                     {{ shift.name }}
                 </option>
             </select>
         </form>
 
-        <button @click="saveAndPush">save</button>
+        <button class="form__button" @click="saveAndPush">Сохранить</button>
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.container {
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 8px;
+}
+
+.form {
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 8px;
+}
+.form__button {
+    width: 100px;
+}
+.form__select {
+    min-width: 200px;
+    width: fit-content;
+}
+</style>
