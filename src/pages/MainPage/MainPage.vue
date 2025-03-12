@@ -4,8 +4,10 @@ import { cities } from "../../entities/cities.ts";
 import { useRouter } from "vue-router";
 import { brigades } from "../../entities/brigades.ts";
 import { shifts } from "../../entities/shifts.ts";
+import { useWorksStore } from "../../app/store/store.ts";
 
 const router = useRouter();
+const store = useWorksStore();
 
 const currentCity = ref("");
 const currentWorkshop = ref("");
@@ -24,6 +26,17 @@ const availableEmployees = computed(() => {
 
     return workshop?.employees;
 });
+
+const saveAndPush = () => {
+    store.data = {
+        currentCity: currentCity.value,
+        currentWorkshop: currentWorkshop.value,
+        currentEmployee: currentEmployee.value,
+        currentBrigade: currentBrigade.value,
+        currentShift: currentShift.value,
+    };
+    router.push("/info");
+};
 </script>
 
 <template>
@@ -66,7 +79,7 @@ const availableEmployees = computed(() => {
             </select>
         </form>
 
-        <button @click="router.push('/info')">save</button>
+        <button @click="saveAndPush">save</button>
     </div>
 </template>
 
