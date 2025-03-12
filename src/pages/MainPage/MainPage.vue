@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { cities, brigades, shifts } from "../models/data";
+import { cities } from "../../entities/cities.ts";
 import { useRouter } from "vue-router";
+import { brigades } from "../../entities/brigades.ts";
+import { shifts } from "../../entities/shifts.ts";
 
 const router = useRouter();
 
